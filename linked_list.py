@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # @Date:   2018-01-04 11:18:16
-# @Last Modified time: 2018-01-05 13:29:48
+# @Last Modified time: 2018-01-05 14:35:16
 """
 链表(linked list)是由一组被称为节点的数据元素组成的数据结构
     节点：
@@ -111,7 +111,22 @@ class Chain(object):
         else:
             return self.__get_node(i).data
 
-    def delete(self, i):
+    def __setitem__(self, i, val):
+        error_text = self.__check_index(i)
+        if error_text:
+            return error_text
+        elif self.length == 1:
+            self.__init__(val)
+        else:
+            if i == 0:
+                prev = self.head
+            else:
+                prev = self.__get_node(i - 1)
+            temp = self.__get_node(i)
+            prev.then = Node(data=val, then=self.__get_node(i + 1))
+            temp.then = None
+
+    def __delitem__(self, i):
         error_text = self.__check_index(i)
         if error_text:
             return error_text
@@ -122,20 +137,36 @@ class Chain(object):
                 prev = self.head
             else:
                 prev = self.__get_node(i - 1)
+            temp = self.__get_node(i)
             prev.then = self.__get_node(i + 1)
+            temp.then = None
             self.length -= 1
 
     def insert(self, i, val):
         error_text = self.__check_index(i)
         if error_text:
             return error_text
+        else:
+            if i == 0:
+                prev = self.head
+            else:
+                prev = self.__get_node(i - 1)
+            node = Node(data=val, then=self.__get_node(i))
+            prev.then = node
+            self.length += 1
 
 
-c = Chain(5, 3, 7, 0)
-print c[1]
-for i in c:
-    print i,
-c.delete(2)
-print
-for i in c:
-    print i,
+if __name__ == '__main__':
+    c = Chain(5, 3, 7, 0)
+    print c[1]
+
+    print[i for i in c]
+
+    del c[2]
+    print[i for i in c]
+
+    c.insert(2, 9)
+    print[i for i in c]
+
+    c[2] = 123
+    print[i for i in c]
