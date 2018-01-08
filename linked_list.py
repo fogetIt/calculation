@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # @Date:   2018-01-04 11:18:16
-# @Last Modified time: 2018-01-05 14:35:16
+# @Last Modified time: 2018-01-05 15:39:31
 """
 链表(linked list)是由一组被称为节点的数据元素组成的数据结构
     节点：
@@ -155,6 +155,16 @@ class Chain(object):
             prev.then = node
             self.length += 1
 
+    def reverse(self):
+        temp = self.tail
+        for i in range(self.length)[::-1]:
+            if i == 0:
+                self.__get_node(i).then = None
+            else:
+                self.__get_node(i).then = self.__get_node(i - 1)
+        self.tail = self.__get_node(0) if not self.is_empty else Node()
+        self.head = Node(then=temp) if not self.is_empty else Node()
+
 
 if __name__ == '__main__':
     c = Chain(5, 3, 7, 0)
@@ -169,4 +179,7 @@ if __name__ == '__main__':
     print[i for i in c]
 
     c[2] = 123
+    print[i for i in c]
+
+    c.reverse()
     print[i for i in c]

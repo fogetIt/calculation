@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # @Date:   2017-12-28 18:48:46
-# @Last Modified time: 2017-12-28 18:48:47
+# @Last Modified time: 2018-01-08 16:09:42
 
 
 def zip(data):
@@ -13,8 +13,8 @@ def zip(data):
             result += data[i - 1]
             result += str(num)
             num = 1
-        if i == len(data) -1:
-            result += data[i - 1]
+        if i == len(data) - 1:
+            result += data[i]
             result += str(num)
     return result
 
@@ -39,12 +39,12 @@ def better_zip(data):
                 result += str(num)
             num = 1
         if i == len(data) - 1:
-            result += data[i - 1]
+            result += data[i]
             if num > 1:
                 result += str(num)
     return result
 
 
-print(zip('aabaaccdfffgtjkii'))
+print(zip('aabaaccdfffgtjki'))
 print(unzip('a2b1a2c2d1f3g1t1j1k1i2'))
 print(better_zip('aabaaccdfffgtjkii'))

@@ -1,6 +1,6 @@
 /*
 * @Date:   2017-12-28 18:48:58
-* @Last Modified time: 2017-12-28 18:49:00
+* @Last Modified time: 2018-01-08 16:11:45
 */
 package main
 
@@ -21,7 +21,7 @@ func zip(data string) (result string) {
 			num = 1
 		}
 		if i == len(data) - 1 {
-			result += string(data[i - 1])
+			result += string(data[i])
 			result += strconv.Itoa(num)
 		}
 	}
@@ -55,7 +55,7 @@ func betterZip(data string) (result string) {
 			num = 1
 		}
 		if i == len(data) - 1 {
-			result += string(data[i - 1])
+			result += string(data[i])
 			if num > 1 {
 				result += string(num)
 			}

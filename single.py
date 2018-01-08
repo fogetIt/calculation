@@ -10,10 +10,10 @@ class Simple(object):
 class Single(object):
     __instance = None
 
+    @staticmethod
     def __new__(cls, *args, **kwargs):
         if Single.__instance is None:
-            Single.__instance = 0
-            # object.__new__(cls, args)
+            Single.__instance = object.__new__(cls, *args, **kwargs)
         return Single.__instance
 
 

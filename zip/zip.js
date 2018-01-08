@@ -1,6 +1,6 @@
 /*
 * @Date:   2017-12-28 18:48:51
-* @Last Modified time: 2017-12-28 18:48:53
+* @Last Modified time: 2018-01-08 16:10:28
 */
 'use strict';
 
@@ -17,7 +17,7 @@ function zip(data) {
             num = 1;
         }
         if (i === data.length - 1) {
-            result += data[i - 1];
+            result += data[i];
             result += num;
         }
     }
@@ -52,7 +52,7 @@ function better_zip(data) {
             num = 1
         }
         if (i === data.length - 1) {
-            result += data[i - 1];
+            result += data[i];
             if (num > 1) {
                 result += num;
             }
