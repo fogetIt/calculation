@@ -87,7 +87,7 @@ def main():
                                                                 and abs(y8 - y2) / abs(x8 - x2) != 1
                                                                 and abs(y8 - y1) / abs(x8 - x1) != 1
                                                             ):
-                                                                print[
+                                                                print(
                                                                     (x1, y1),
                                                                     (x2, y2),
                                                                     (x3, y3),
@@ -96,7 +96,7 @@ def main():
                                                                     (x6, y6),
                                                                     (x7, y7),
                                                                     (x8, y8),
-                                                                ]
+                                                                )
 
 
 if __name__ == '__main__':
